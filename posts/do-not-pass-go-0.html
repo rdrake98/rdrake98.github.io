@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link href='../shared.css' rel='stylesheet'>
+    <link href='../blog.css' rel='stylesheet'>
+    <title>search for notability - do not pass go</title>
+  </head>
+  <body>
+    <div id='wrap'>
+      <div id='header'>
+        <h1>search for notability</h1>
+      </div>
+      <div id='content'>
+        <div id='nav'>
+          <p><a href="ossat-nodejs-and-johnson.html">next</a> &nbsp;
+          <a href="../index.html">index</a> &nbsp;
+          <a href="search-for-notability-1.html">previous</a> </p>
+        </div>
+        <div class='post'>
+          <div class='post_header'>
+            <h3>do not pass go</h3>
+            <div class='post_info'>
+              <span class='post_time'>November 19 2009</span>
+              <span class='author'></span>
+            </div>
+          </div>
+          <div class='post_body'>
+            <p>
+              I've been looking at Google's
+              <a href='http://golang.org/'>new systems programming language</a>
+              Go. I think there'll be a lot more to say about it on this blog, over time. Which is to say that I expect it to become an important language, because C and C++ occupy a
+              <a href='http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html'>massive space</a>
+              in the industry and have some real flaws. Plus Rob Pike and Ken Thompson have an impressive track record. Add the
+              <a href='http://lambda-the-ultimate.org/node/3676#comment-52201'>attention only Google can get these days</a>
+              and I think Go has to be considered a player.
+            </p>
+            <p>
+              So first, thumbs up to Google for allowing one of their own,
+              <span class='externalLink'><a href='http://scienceblogs.com/goodmath/2009/11/googles_new_language_go.php'>Mark Chu-Carroll</a>, to do a lengthy blog post that was by no means all positive about his experiences using the language. Can you imagine Sun allowing that with Java on its much-hyped emergence in 1995, or Microsoft in its long tit-for-tat with C#? But to win the respect of real-world engineers this is the only way to go - to coin a phrase - and immediately led to a highly informative discussion.
+              </span>
+            </p>
+            <p>
+              <span class='externalLink'>
+                Still, there's been a lot of moaning, especially from some older software types, typified by
+                <a href='http://www.xent.com/pipermail/fork/Week-of-Mon-20091109/054578.html'>Jeff Bone</a>.
+                He makes valid points about how slow progress seems to be for the ordinary programmer in language, library and operating system design. But in the end my hunch is that getting concurrency right was never going to be easy, it was always going to be a multi-decadal job. I'm not even saying that Go has got it right. And it's notable of course that it's harking back to Tony Hoare and CSP from the 1960s. (Nice to see from
+                <a href='http://en.wikipedia.org/wiki/C._A._R._Hoare'>Wikipedia</a>
+                that the great man is still alive to witness this, if he still cares!) But making channels first class objects and strongly encouraging data sharing through communicating processes (something that neither Chu-Carroll nor Bone really touch on) is for me a bet worth making, in a world of increasing multicore. I hope they're right, because we need all the help we can get with concurrent programming.
+              </span>
+            </p>
+            <p>
+              <span class='externalLink'>
+                Alan Kay once said that a quantitative difference can make a qualititative difference - for example in the responsiveness of a user interface. It may be thought a low blow quoting Kay in support of Go - though I in turn appreciated the positive mention of Smalltalk by Pike in his
+                <a href='http://www.youtube.com/watch?v=rKnDgT73v8s'>introductory video</a>
+                - but I 100% endorse the emphasis on compilation speed and the automatic dependency detection that it partly relies on. These areas have been crying out for a clean up, as you know if you have done anything significant with C or C++ - and one has the impression that Google just might!
+              </span>
+            </p>
+            <p>
+              <span class='externalLink'>I'm also happy not to have to declare any interfaces for a type. Polymorphic dispatch comes out nicely from multiple implementations of the same interface - as an ancient object guy I'm happy with all that.</span>
+            </p>
+            <p>
+              But in the end my sympathies are with
+              <a href='http://queue.acm.org/detail.cfm?id=1039523'>Alan Kay</a>
+              when he said positively of C that it turned out to be the universal computer-oriented language many had hoped for (<a href='http://en.wikipedia.org/wiki/UNCOL'>from the early 1950s</a>) but "I don't think any human being should write in it." How different will Go be? I'm by no means convinced by the type system, by the 'special cases' of map, slice and channel, by a whole raft of things. Quoting Kay again (or at least someone's
+              <a href='http://lambda-the-ultimate.org/node/531#comment-4248'>memory of the man</a>):
+              "We don't have a science of software engineering. Until we do, we should take advantage of late binding." You do get some late binding in Go, through the interfaces, but we don't yet seem to have created a compile-time-checked type system that is as fully productive for the ordinary programmer, especially in handling collections of objects, as the best run-time-checked systems, nowadays typified by Ruby in mainstream web development.
+            </p>
+            <p>But passing over all that (as if he were heading for the jail in Monopoly for bad behaviour), it's as well to remember that Go presents itself as a "systems programming language". As such it seems a good effort. I hope it succeeds and becomes a favoured target, as a better-behaved and better-understood concurrent substrate, for faster and much more engaging end-user and exploratory programming environments than we've had to put up with in times past.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

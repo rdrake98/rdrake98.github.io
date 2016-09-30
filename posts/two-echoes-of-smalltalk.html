@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link href='../shared.css' rel='stylesheet'>
+    <link href='../blog.css' rel='stylesheet'>
+    <title>search for notability - two echoes of smalltalk</title>
+  </head>
+  <body>
+    <div id='wrap'>
+      <div id='header'>
+        <h1>search for notability</h1>
+      </div>
+      <div id='content'>
+        <div id='nav'>
+          <p><a href="four-numbers-that-tell-a-story.html">next</a> &nbsp;
+          <a href="../index.html">index</a> &nbsp;
+          <a href="ossat-nodejs-and-johnson.html">previous</a> </p>
+        </div>
+        <div class='post'>
+          <div class='post_header'>
+            <h3>two echoes of smalltalk</h3>
+            <div class='post_info'>
+              <span class='post_time'>May 16 2011</span>
+              <span class='author'></span>
+            </div>
+          </div>
+          <div class='post_body'>
+            <p>
+              In the last few days a couple of things have reminded me of Smalltalk. First, on the advice of
+              <a href='http://antennasoft.net/robcee/'>Rob Campbell</a>
+              I downloaded the
+              <a href='http://nightly.mozilla.org/'>alpha of Firefox 6</a>
+              to take a look at the new JavaScript
+              <a href='http://antennasoft.net/robcee/2011/05/10/scratchpad-nee-workspace-web-developer-menu-landed/'>Scratchpad</a>.
+              I tried it with a number of pages, including one with notes from the last four years in my hard-worked variant of TiddlyWiki called Whiteword, which uses jQuery. It was fun to be set free of the constraints of Web Console or Firebug's single line of commands, with limited history, and have a persistent text area from which one can execute arbitrarily long pieces of code, or print or inspect their result. Finally we have something close to the facilities of any text area within a Smalltalk-80 image. Yes, you read that right, we're close to being bang up to date with 1980 - and all this coming to a browser near you in the far from imminent future. Well worth seeing all the same, thanks Mozilla.
+            </p>
+            <p>The second experience was not so favourable to browser JavaScript. Some errors had crept in to a large dataset of over 10,000 items, at least as seen in an AJAX-ey way in the browser (with not all 10k seen at once, of course, but all downloaded ready to be revealed as needed). I executed some JavaScript from the console to give a useful text representation of the data, as an array. But once I had something of that size and wanted to investigate, including comparing it with other such arrays, from past versions of the system, I at once headed for Ruby. The neat thing is that array syntax is the same for both languages. What isn't so neat is TextMate choking on such a large piece of text. As before, Mac's TextEdit coped with that part fine, defining methods to return the arrays in question. Once I was exploring datasets of that size, with unknown problems, the power of Ruby's Enumerables seemed essential to have as a kind of programmer security blanket. Indeed the main symptom of the problem showed through very quickly (though not its solution, not yet). Having done some array.collects to homogenize the data all it needed was a simple Ruby difference : array1 - array2. But, as ever, I didn't know that to begin with.</p>
+            <p>
+              Ruby's Arrays and Hashes remind me of Smalltalk too of course, not least because
+              <a href='http://www.infoq.com/interviews/yukihiro-matz-language-design'>Matz</a>
+              designed them that way. But it's not just a stylistic thing, it's also stability, robustness, completeness and coherence. Once you can take these basics for granted you find yourself concentrating more on the business problem than the language and libraries you're using to probe it. Talking of libraries, I'm glad CommonJS is making strides, partly powered by the interest in Node.js on the server. But I didn't have CommonJS handy inside my legacy pages. With Smalltalk and Ruby you know these fundamentals are there at all times. And that's the way it should always have been in JavaScript, even given the constraints of web download times, at least so it felt to me again this week.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #EAEEFF;
+  color: #424037;
+  width: 100%;
+  margin: 20px 0 20px 0;
+}
+
+div#wrap {
+  margin: 0 auto;
+  width: 900px;
+  text-align: left;
+  margin-top: -1px;
+  border-top: 1px solid transparent;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.post_body {
+  width: 660px;
+  font-size: 16px;
+  line-height: 1.8em;
+}
+
+p {
+  margin: 10px 0 20px;
+}
+
+a {
+  color: #f60;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

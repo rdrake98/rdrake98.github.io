@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link href='../shared.css' rel='stylesheet'>
+    <link href='../blog.css' rel='stylesheet'>
+    <title>search for notability - ossat, node.js and johnson</title>
+  </head>
+  <body>
+    <div id='wrap'>
+      <div id='header'>
+        <h1>search for notability</h1>
+      </div>
+      <div id='content'>
+        <div id='nav'>
+          <p><a href="two-echoes-of-smalltalk.html">next</a> &nbsp;
+          <a href="../index.html">index</a> &nbsp;
+          <a href="do-not-pass-go-0.html">previous</a> </p>
+        </div>
+        <div class='post'>
+          <div class='post_header'>
+            <h3>ossat, node.js and johnson</h3>
+            <div class='post_info'>
+              <span class='post_time'>April 16 2010</span>
+              <span class='author'></span>
+            </div>
+          </div>
+          <div class='post_body'>
+            <p>
+              Time to get technical. Not that the ongoing
+              <a href='http://climateaudit.org/2010/04/15/a-fair-sample/'>rumpus over CRU</a>,
+              Steve McIntyre's
+              <a href='http://climateaudit.org/2009/11/29/replicating-the-trick-diagram/'>pioneering work</a>
+              in the
+              <a href='http://www.gnu.org/'>GNU</a>-blessed
+              <a href='http://www.r-project.org/'>stats language R</a>
+              (with its underlying Fortran bringing back less-than-fond memories of undergraduate days at Cambridge - perhaps the only week of programming in my life I didn't thoroughly enjoy) or the redoubtable, anonymous statistician VS using
+              <a href='http://ourchangingclimate.wordpress.com/2010/03/01/global-average-temperature-increase-giss-hadcru-and-ncdc-compared/#comment-1216'>MatLab and the Akaike Information Criterion</a>
+              to try to model basic climate time series isn't all very much so in its own way. And there's a connection back into all that at the end here. But first, the (other) news.
+            </p>
+            <p>
+              I've greatly enjoyed reconnecting with the
+              <a href='http://lrug.org/meetings/2010/01/21/february-2010-meeting/'>London Ruby User Group</a>
+              a couple of times this year, meeting old friends like Ben Griffiths and new ones like
+              <a href='http://pardel.net/'>Paul Ardeleanu</a>
+              and Alex McCaw, who have interesting open source projects in play to make Objective-C development for iPhone/iPad more Rails-like and Ruby/JavaScript/HTML5/CSS something
+              <a href='http://github.com/maccman/bowline'>more like a full GUI</a>,
+              respectively. There's a whole lotta innovation goin' on, even in one's own back yard. It's inspiring to pick up what the Ruby neck of the open source world is up to. And be assured that I'm not forgetting the Python contribution - I'm sure Google isn't going to let me do that!
+            </p>
+            <p>
+              But this Wednesday I had a problem, in that LRUG clashed with
+              <a href='http://ossat.org/'>Open Source Show and Tell</a>,
+              which I'd not been to since
+              <a href='http://www.osmosoft.com/'>BT Osmosoft</a>
+              kicked it off a couple of years ago. (I think OSSAT began as monthly and has since settled in to being semi-annual but, as this was my first in 20-30 months, any frequency better than that will do fine, thanks guys.)
+            </p>
+            <p>
+              There were a number of reasons for prefering the event just south of
+              <a href='http://www.goldenhinde.com/'>Drake's old boat</a>
+              at
+              <a href='http://theteam.co.uk/'>The Team</a>
+              this time. Free food and drink is never to be discounted in my case. I was keen to see
+              <a href='http://jermolene.com/about/'>Jeremy Ruston</a>,
+              inventor of TiddlyWiki, and Martin Budden, a stalwart ex-Symbian member of his team, again after some gap. I was very interested to meet key Ruston associates Chris Dent and
+              <a href='http://premasagar.com/'>
+                <span class='fn'>
+                  <span title="It's Sanskrit, by the way.">Premasagar</span>
+                </span>
+                Rose
+              </a>
+              for the first time - and learn much more about the dark state of the art in writing fail-safe widgets for the web from Prem. But top of the list for sure was hearing from Phil Hawksworth on
+              <a href='http://nodejs.org/'>node.js</a>,
+              as I told Phil when I wandered in early, evidently building the pressure for the guy as he carried out last minute fixes to his Keynote slides and live demo - something I always love to do.
+            </p>
+            <p>
+              I'd felt I'd had another key choice in the last week: whether to do some exploration myself with this very lightweight, single-threaded but non-blocking event-driven library, about which there's been substantial buzz on
+              <a href='http://github.com/ry/node'>GitHub</a>
+              and in the JavaScript community generally, or to get into Johnson. I chose the latter and that turned out really well, as I'll come to. But the other reason for waiting on node.js was to pick Phil's brains first, who's been tinkering with it on and off for a number of months. As I expected he said it was awesome - that was in the
+              <a href='http://upcoming.yahoo.com/event/5393063/gb/London/Open-Source-Show-And-Tell/The-Team/'>title</a>
+              - and I quickly fell into line. JavaScript has always been a powerful language. I remember thinking so when it was still called LiveScript, reading the manual from Netscape in 1995, reflecting even then that this is closer to what I've believed in for over ten years - dynamically typed, prototype-based, with functions/closures as first class objects - than Java will ever be. More recently good people like Aptana have been trying to push
+              <a href='http://ajaxian.com/archives/aptana-releases-jaxer-ajax-server-built-on-mozilla'>JavaScript on the server</a>
+              in new ways. But it's needed something to act as a catalyst. And (based especially on the session in the pub on the edge of Borough Market afterwards) Phil and I tend to agree that node.js and the many things already being built on it and around it is sufficient for that. JavaScript, aided and abetted by the
+              <a href='http://code.google.com/apis/v8/intro.html'>V8 engine</a>
+              from Google, is certainly going to be a force on the server as well as the client. And where does that leave Ruby, Python, Perl and PHP, to say nothing of C# and Java, I hear you ask?
+            </p>
+            <p>
+              Well, I don't entirely know. So I'm going to concentrate on a couple of simpler questions. Why am I, Richard Drake, still likely to be mucking around with Ruby in the coming months and years? And what's the relationship between Google's commitment to JavaScript, exemplified by V8, its undoubted fondness for Python and its sponsorship of Go, discussed
+              <a href='http://rdrake98.posterous.com/do-not-pass-go-0'>in November</a>?
+            </p>
+            <p>Second question first. Is Google simply saying "We don't care, let the most popular man win"? No, of course they care. They prefer Python to Perl or PHP and rightly so. They still use C++ very heavily in the core areas of search, MapReduce, BigTable and all that, and their experience of that - by no means all positive - has led among other things to the slick dependency detection and blazing compilation speed of Go. But JavaScript is the most pervasive software language in the world, because it was built into the browser by Netscape and then Microsoft, as well as chosen by Adobe for programming Flash (as ActionScript). There may be no stopping it, on client and server. Google is quite right to want the best possible implementations of it to win out. And whatever one's doubts about the ethics of Big G in other areas, to open source V8 from the word go is a tremendous gift to the world. That - plus Linus Torvalds' open source efforts in C/C++ on the Git distributed version control system and the closed-source Ruby/JavaScript running GitHub, now the premier place on the planet for open source collaboration (don't miss the usual open-closed irony in passing) - all this has enabled the node.js flowering to happen. It really is an awesome thing, both technically and socially. Expect a blog post with more about that in the next few weeks.</p>
+            <p>
+              There were issues left unaddressed there. Did the Go announcement signal that Google had run into the limits of Python, as some people suggested at the time? As the
+              <a href='http://golang.org/doc/go_lang_faq.html'>originators put it</a>:
+            </p>
+            <p style='padding-left: 30px;'>
+              Programmers who could were choosing ease over safety and efficiency by  moving to dynamically typed languages such as
+              <span class='tiddlyLink tiddlyLinkExisting'>Python</span>
+              and
+              <span class='tiddlyLink tiddlyLinkExisting'>JavaScript</span>
+              rather than
+              <span class='tiddlyLink tiddlyLinkExisting'>C++</span>
+              or, to a lesser extent,
+              <span class='tiddlyLink tiddlyLinkExisting'>Java</span>.
+              Go is an  attempt to combine the ease of programming of an interpreted,  dynamically typed language with the efficiency and safety of a  statically typed, compiled language.
+            </p>
+            <p>I'm not sure I buy all of that and I don't how it will all pan out, for Google or the rest of us. The concise inbuilt concurrency based on CSP is another key aspect to Go, as discussed before. But what's the purpose of blog entries with dates on them if it isn't to say more later, maybe even change one's mind in the light of emerging evidence? Enough on all that for now.</p>
+            <p>
+              Another subject I won't get to the bottom of is why I don't want to give up Ruby for JavaScript everywhere, not until certain things change. Top of those would be better, more consistent handling of collections (as Smalltalk once called groups, lists, bags, sets and dictionaries) and very clean iteration over them. The Prototype library made a valiant effort to put this right but has in many ways been superseded by jQuery, which has other strengths in the browser/DOM environment. A broader point is the lack of a common library -
+              <a href='http://jshq.org/commonjs/history.html'>CommonJS</a>being
+              another brave attempt to attend to this.
+            </p>
+            <p>It's not just the libraries, there's modules out of the box, thought through from the beginning, and some syntactic sugar in Ruby that makes it, for me, a good deal more readable and less easy to make silly mistakes in. There are also symbols, distinct from strings, as a first class concept built in (following Smalltalk) with very easy :syntax (just like that). And without exhausting the subject by any means, that takes me to Johnson and the other reason I'll be using Ruby for a while.</p>
+            <p>
+              And that's because it's there. Not in as many places as JavaScript, due to the ubiquity of the browser. But largely due to initial Ruby on Rails hype (much of it deserved, given the state of the art at the time), Ruby has now emerged and proved itself as a viable real-world language for all kinds of things - and one of those things is a set of scripts by Osmosoft to chop up and put back together TiddlyWikis of all shapes and sizes. I have no idea who originally chose Ruby for this humble task - certainly these days Osmosoft are prefering Python on the server, notably in Chris Dent's very interesting efforts on
+              <a href='http://tiddlyweb.com/'>TiddlyWeb</a>.
+              But I'm a big TiddlyWiki user. Size doesn't always matter but when I boasted to folks like Martin Budden and Phil Hawksworth on Wednesday night of getting on for 20 MB in a single wiki for my own personal information and research (correction, it's around 16MB, but you know how it goes with men and size) there was as I hoped some intake of breath. Yes, I know the dark side of the Tiddly experience. But mostly it remains an invaluable tool for me. And in the process of writing my own plugins to tailor the experience (under the brand name of Whiteword) and sharing stuff with other folk I've got pretty familiar with ginsu.rb and cook.rb, the Ruby files that chop up and reassemble TiddlyWikis.
+            </p>
+            <p>
+              It was only last weekend that it came to me that as there's been
+              <a href='http://trac.tiddlywiki.org/wiki/History'>another version of TW</a>
+              I needed to check conflicts between my stuff and whatever functions and globals have been changed in 2.6.0 from 2.5.3 - and that there were surely by now some Ruby libraries that would allow me to parse JavaScript to assist with this task.
+              <a href='http://stackoverflow.com/questions/1789389/ruby-bindings-for-a-server-side-javascript-engine'>Indeed there are</a>.
+              I was soon favouring
+              <a href='http://www.infoq.com/news/2008/10/johnson-javascript-on-ruby'>Johnson</a>,
+              the cheekily-named Ruby-JavaScript bridge that I'd only vaguely heard of before, because of the many interesting things John Battelle and Aaron Patterson set out to achieve with it, as indicated in their
+              <a href='http://rubyconf2008.confreaks.com/how-i-learned-to-love-javascript.html'>hilarious joint presentation</a>
+              at RubyConf in late 2008.
+            </p>
+            <p>
+              Johnson came about before V8 was out and relies on the Mozilla SpiderMonkey JavaScript implementation used in Firefox (briefly called TraceMonkey but that moniker is no longer needed, the Johnson guys tell me). I'd been thinking on the weekend that someone smart might have taken this open source C++ and embedded it as an extension to Ruby in MRI,
+              <a href='http://www.infoq.com/interviews/yukihiro-matz-language-design'>Matz</a>'s
+              original C-based implementation of Ruby, now known to its friends as version 1.8.7. And that's exactly what Battelle and Patterson got working, more or less, in 2008, overcoming the pain of the memory management issues and other interesting boundary problems between the two languages.
+            </p>
+            <p>
+              This is a wonder of the open source world. You suddenly think something might be possible and you find someone smarter than you got there first and
+              <strong>you can at once benefit</strong>,
+              even if there are things not yet perfect (as is true with Johnson, for sure).
+            </p>
+            <p>
+              And benefit I did. Once I'd got over a very silly oversight that after recent playing with
+              <a href='http://rvm.beginrescueend.com/'>RVM</a>
+              I'd left my Mac OS X system with a
+              <a href='http://groups.google.com/group/johnson-talk/browse_thread/thread/d2dc55eb4db7468a'>rather old version of Ruby 1.8.7</a>,
+              it took me just a few hours to knock up a script in Ruby that analysed all the TiddlyWiki code, my own JavaScript and the plugins of others I've been using and told me where there might be conflicts. I took the parse tree provided by Johnson and converted to S-expressions, as I found this easiest to read, simply symbols and strings in arrays. I know my life is sad in many ways but it was truly exciting to see one's own JavaScript code expressed this way in irb:
+            </p>
+            <div class='CodeRay'>
+              <div class='code'>
+                <pre>ruby-1.8.7-p249 > sexp = Johnson::Parser.parse(IO.read('../tickle/parse_cases.js')).to_sexp&#x000A;ruby-1.8.7-p249 > sexp[3] &#x000A;=> [:var, [[:assign, [:name, "basicMorpheme"], [:new, [[:name, "RegExp"], [:name, "wikiChunk"], [:str, "g"]]]]]]  &#x000A;...&#x000A;$ parse.rb ../tickle/parse_cases.js &#x000A;...&#x000A;basicMorpheme            %p No time to explain - more later - except to say that basicMorpheme is a global defined by my JavaScript, and is here being picked out as such by my little parser in Ruby. It was truly satisfying to see this happen, then make the transition to TiddlyWiki 2.6.0 painlessly on the back of what I learned.</pre>
+              </div>
+            </div>
+            <p>
+              I was going to finish with an account of my chat outside the pub after OSSAT with
+              <a href='http://www.jordanhatcher.com/'>Jordan Hatcher</a>
+              of
+              <a href='http://www.opendatacommons.org/'>Open Data Commons</a>
+              about the
+              <a href='http://www.publications.parliament.uk/pa/cm200910/cmselect/cmsctech/memo/climatedata/uc3702.htm'>Open Climate Initiative</a>.
+              Of course I mentioned my promised lunch with Stephen Fry next month, where OCI is squarely on the menu. But that's got to be a separate post now. Yes I know, I need to break things up a little more, which I will do on this blog in future, I promise. But here's a neat connection I hadn't spotted until writing this: I went off to
+              <a href='http://www.gnu.org/'>GNU</a>
+              because R is one of their languages (heavily used by the best climate auditors like Steve McIntyre and Willis Eschenbach) and, lo and behold, there was Fry's avuncular visage on yet another online video, this time
+              <a href='http://www.gnu.org/fry/'>celebrating the birthday of Richard Stallman's crucial baby</a>.
+              ALMOST AS UBIQUITOUS AS JAVASCRIPT? (The caps lock came on by mistake there but it seemed to fit.) But, joking apart, what a good man, a genuine modern-day polymath. More for sure in the next post and I hope beyond.
+            </p>
+          </div>
+          <div class='post_responses'>
+            <ul class='post_responses list'>
+              <li class='response clearfix'>
+                <div class='response_header'>
+                  <div class='response_time'>Apr 18 2010</div>
+                  <div class='response_name'>Andrew Montford responded:</div>
+                </div>
+                <div class='response_body'>The Open Climate Initiative sounds interesting. I was playing around with what is probably a similar idea myself. Fancy comparing notes?</div>
+              </li>
+              <li class='response clearfix'>
+                <div class='response_header'>
+                  <div class='response_time'>Apr 18 2010</div>
+                  <div class='response_name'>Richard Drake responded:</div>
+                </div>
+                <div class='response_body'>Nothing I'd like better Andrew - you were in my top six to talk to about it, not least because of what you know about scientific publishing. Let's email - I'm rdrake98 on the gmail label.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
